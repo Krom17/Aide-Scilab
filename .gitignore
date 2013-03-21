@@ -1,0 +1,3 @@
+# Ignore les fichiers auxilaires générés par xelatex
+*.log
+*.aux
