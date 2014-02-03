@@ -7,6 +7,8 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass{article}
+\usepackage{xr-hyper}
+\usepackage{hyperref}
 \usepackage[margin=15mm,landscape,a4paper]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 %\geometry{a5paper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -32,8 +34,8 @@
 \maketitle
 
 \textit{Cette aide-mémoire Scilab est mis à disposition selon les termes de la licence Creative Commons Attribution - Pas d’Utilisation Commerciale 3.0 France. \ccby\ccnc\cc}
-\section*{Généralités}
-\subsection*{Conventions de cette aide-mémoire}
+\section{Généralités}
+\subsection{Conventions de cette aide-mémoire}
 \begin{description}
 \item{c*} sont des variables ou des expressions scalaires.
 \item{v*} sont des variables ou des expressions vectorielles.
@@ -43,7 +45,7 @@
 \item{cmd*} sont des valeurs ou des expressions booléennes.
 \item{var*} sont des variables ou des expressions sans type spécifique.
 \end{description}
-\subsection*{Aide}
+\subsection{Aide}
 \begin{description}
 \item{\textbf{help}()} démarre le système d'aide
 \item{\textbf{help} (\textit{str\_cmd})} recherche l'aide sur la fonction \textit{cmd}
@@ -51,7 +53,8 @@
 \item{\textbf{apropos}(\textit{str\_kwd})} recherche dans l'aide le mot-clé \textit{kwd} et ordonne par pertinence les résultats
        \begin{verbatim}--> apropos('inv')\end{verbatim}
 \end{description}
-\subsection*{Environnement}
+\subsection{Environnement}
+\label{environnement}
 \begin{description}
 \item{\textbf{who}} liste les variables connues dans l'environnement.
 \item{\textbf{whos}} liste de manière détaillée les variables connues dans l'environnement.      
@@ -78,7 +81,8 @@
 \end{verbatim}
 \item{\textbf{scinotes}()} lance l'éditeur de texte intégré de Scilab.
 \end{description}
-\subsection*{Constantes}
+\subsection{Constantes}
+\label{constantes}
 \begin{description}
 \item{\textbf{\%i}, \textbf{\%pi}, \textbf{\%e}}:  imaginaire $i$, $\pi$, $e$
 \item{\textbf{\%eps}} est un petit nombre réel représentable en machine.
@@ -98,16 +102,17 @@
   F T 
   \end{verbatim}
 \end{description}
-\subsection*{Autres fonctions}
+\subsection{Autres fonctions}
+\label{autres}
 \begin{description}
-\item{\textbf{disp}(\textit{var1}, \textit{var2}, \ldots, \textit{varn})} affiche chacun des paramètres dans l'ordre \textit{varn}, \ldots, \textit{var2},\textit{var1}.
+\item\label{disp}{\textbf{disp}(\textit{var1}, \textit{var2}, \ldots, \textit{varn})} affiche chacun des paramètres dans l'ordre \textit{varn}, \ldots, \textit{var2},\textit{var1}.
 \begin{verbatim}
 -->a=3;b=5;disp('Un petit texte :',a,a+b)
     8.  
     3.  
  Un petit texte : 
 \end{verbatim}
-\item{\textit{c} = \textbf{input}(\textit{str\_msg})} permet de récupérer une valeur saisie par l'utilisateur.
+\item\label{input}{\textit{c} = \textbf{input}(\textit{str\_msg})} permet de récupérer une valeur saisie par l'utilisateur.
 \begin{verbatim}
 -->h=input('Donnez une valeur pour h : ');
 Donnez une valeur pour h : 6
@@ -116,8 +121,9 @@ Donnez une valeur pour h : 6
 \end{verbatim}
 \end{description}
 
-\section*{Vecteurs et matrices}
-\subsection*{Définition}
+\section{Vecteurs et matrices}
+\subsection{Définition}
+\label{vecteurs}
 \begin{description}
 \item{\textbf{[ ]}} est la matrice vide.
 \item{\textbf{[}\textit{c1, c2,~\ldots ,~cn}\textbf{]} ou \textbf{[}\textit{c1 c2 \ldots ~cn}\textbf{]}} est un vecteur ligne.
@@ -176,7 +182,7 @@ Donnez une valeur pour h : 6
     3.    4.    6.  
 \end{verbatim}
 \end{description}
-\subsection*{Cas particuliers}
+\subsection{Cas particuliers}
 \begin{description}
 \item{\textbf{ones}(\textit{c\_lig},1)} est le vecteur \textit{lig} $\times$ 1 rempli de 1.
 \item{\textbf{ones}(1,\textit{c\_col})} est le vecteur \textit{1} $\times$  \textit{col} rempli de 1.
@@ -234,7 +240,7 @@ $$ [deb,fin] \cap [deb,deb+pas,deb+2*pas,\ldots]$$
 \item{\textbf{rand}(\textit{M})} retourne une matrice de même taille que $M$ dont les entrées sont choisis aléatoirement (uniformément dans $[0,1]$).
 
 \end{description}
-\subsection*{Propriétés}
+\subsection{Propriétés}
 \begin{description}
 \item{\textbf{length}($v$)} retourne le nombre d'éléments de $v$.
 \item{\textbf{length}($M$)} retourne le nombre d'éléments de la matrice $M$.
@@ -254,7 +260,7 @@ $$ [deb,fin] \cap [deb,deb+pas,deb+2*pas,\ldots]$$
     3.
 \end{verbatim}
 \end{description}
-\subsection*{Indexation}
+\subsection{Indexation}
 \begin{description}
 \item{$v$\textbf{(}1\textbf{)}, $v$\textbf{(}\textit{c\_i}\textbf{)}, $v$\textbf{(\$)}} désignent le premier, le $i^{ieme}$ et le dernier élément du vecteur $v$.
 \item{$v$\textbf{(}1\textbf{:}\textit{c\_i}\textbf{)}} est le vecteur des i premiers éléments du vecteur $v$.
@@ -332,7 +338,7 @@ $$ [deb,fin] \cap [deb,deb+pas,deb+2*pas,\ldots]$$
 \end{verbatim}
 \end{description}
 
-\subsection*{Transformations}
+\subsection{Transformations}
 \begin{description}
 \item{\textbf{flipdim}($v$,1)} inverse l'ordre des éléments du vecteur $v$.
 \item{\textbf{flipdim}($M$,\textit{c\_dim})} retourne la matrice $M$ selon la dimension \textit{dim}.
@@ -363,7 +369,7 @@ $$ [deb,fin] \cap [deb,deb+pas,deb+2*pas,\ldots]$$
     3.  4.  3.  4.  3.  4.
 \end{verbatim}
 \end{description}
-\subsection*{Autres fonctions utiles}
+\subsection{Autres fonctions utiles}
 \begin{description}
 \item{\textbf{find}($v$)} retourne les indices de valeurs de $v$ différentes de 0.
 \item{\textbf{find}($M$)} retourne les indices linéaires de valeurs de $M$ 
@@ -402,8 +408,8 @@ différentes de 0.
   F T
 \end{verbatim}
 \end{description}
-\section*{Math}
-\subsection*{Calculs élémentaires}
+\section{Math}
+\subsection{Calculs élémentaires}
 \begin{description}
 \item{\textbf{sin,cos,tan,asin,acos,atan,atan2,log,log10,exp}}\\
 diverses fonctions mathématiques
@@ -462,7 +468,7 @@ $$w(j) = v(j+1)-v(j)$$
 \item{\textbf{gsort}($v$)} trie les éléments de $v$ par ordre décroissant.
 \item{\textbf{gsort}($v$,'g','i')}  trie les éléments de $v$ par ordre croissant.
 \end{description}
-\section*{Calcul matriciel}
+\section{Calcul matriciel}
 \begin{description}
 \item{$M$\textbf{'}} est la matrice adjointe de $M$.
 \item{$M$\textbf{.'}} est la transposée de $M$.
@@ -518,7 +524,7 @@ $$M = {}^{t}U * U$$
 %x = A/b; // Solution to x*b=A, NOT MATRIX “DIVISION”
 \end{description}
 
-\subsection*{Polynômes}
+\subsection{Polynômes}
 \begin{description}
 \item{[\textit{p}]=\textbf{poly}(M,"x")} définit $p$ comme le polynôme caractéristique de $M$.
 $$p(x) = det(M - xI)$$
@@ -533,7 +539,8 @@ $$p(x) = det(M - xI)$$
 
 
 
-\section*{Graphiques}
+\section{Graphiques}
+\label{graphiques}
 \begin{description}
 \item{\textbf{plot}(\textit{v\_y})}  trace la courbe reliant les points $\{(t,y(t))\}$.
 \item{\textbf{plot}($M$)}  applique la fonction de tracé précédente à chacune des colonnes de $M$ (une couleur par colonne).
@@ -586,8 +593,9 @@ plot3d(xx,yy,zz)
 \end{description}
 
 
-\section*{Programmation}
-\subsection*{Fonctions et paramètres}
+\section{Programmation}
+\subsection{Fonctions et paramètres}
+\label{fonctions}
 %deff('[s1,s2,...]=newfunction(e1,e2,....)',text [,opt])
 \begin{description}
 \item{\textbf{function} [\textit{var\_o1},\ldots,\textit{var\_om}]=\textit{nom\_fonct}(\textit{var\_i1},\ldots,\textit{var\_in})}
@@ -609,9 +617,9 @@ endfunction
     9.
 \end{verbatim}
 
-\item{\textbf{deff}(\textit{str\_specif}, \textit{str\_code})} permet de définir une fonction (courte) en ligne sans passer par un fichier .sci. La chaine de caractères \textit{str\_specif} contient la spécification de la fonction, la chaine de caractères \textit{str\_code} en contient le code.
+\item{\label{deff}\textbf{deff}(\textit{str\_specif}, \textit{str\_code})} permet de définir une fonction (courte) en ligne sans passer par un fichier .sci. La chaine de caractères \textit{str\_specif} contient la spécification de la fonction, la chaine de caractères \textit{str\_code} en contient le code.
 \begin{verbatim}
--->deff('[x2]=mafonction(x)','x2 = x**2');
+-->deff('[x2]=mafonction(x)','x2 = acos(x))');
 -->mafonction(3)
  ans  =
     9.
@@ -619,7 +627,8 @@ endfunction
 \item{\textbf{deff}(\textit{str\_specif}, \textit{str\_code},'p')} rajoute l'option de profilage à la fonction définie en ligne.
 \end{description}
 
-\subsection*{Structures de contrôle}
+\subsection{Structures de contrôle}
+\label{controle}
 \begin{description}
 \item{Branchement conditionnel \textbf{if}}\\
 
@@ -651,6 +660,7 @@ endfunction
 \textit{cmd\_1}; \ldots; \textit{cmd\_n};\\
 \hspace*{-7mm}\textbf{end}
 \end{description}
+\label{excontrole}
 \begin{verbatim}
 v = 1;
 if v==0,
@@ -659,13 +669,13 @@ if v==0,
    end
 else
   i=3;
-  while i<=3,
+  while i>=1,
      disp(i);
-     i = i+1;
+     i = i-1;
   end, 
 end    
 \end{verbatim}
-\subsection*{Autres structures de données}
+\subsection{Autres structures de données}
 \begin{description}
 \item {\textbf{struct}(\textit{str\_chp1}, $var1$, \ldots,\textit{str\_chpn}, $varn$)} retourne un enregistrement composé d'un ensemble de couples champ / valeur.\\
 \begin{verbatim}
@@ -700,7 +710,7 @@ end
 -->L(4) = 'chaine';
 \end{verbatim}
 \end{description}
-\subsection*{Flot d'exécution, Débogage}
+\subsection{Flot d'exécution, Débogage}
 \begin{description}
 \item{\textbf{break}} interrompt la répétitive courante.
 \item{[\textit{var\_o1},\ldots,\textit{var\_om}] = \textbf{return}(\textit{var1},\ldots,\textit{varm})} provoque la sortie inconditionnelle de la fonction en cours d'interprétation.
@@ -731,7 +741,7 @@ endfunction        |1  |0   |0|
 \end{verbatim}
 \end{description}
 
-\section*{}
+\section{}
 
 \end{multicols}
 \end{document}  

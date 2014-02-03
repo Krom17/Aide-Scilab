@@ -1,4 +1,7 @@
 # Ignore les fichiers auxilaires générés par xelatex
 *.log
 *.aux
+*.log
+*.out
+*(busy)
 .DS_Store
