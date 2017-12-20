@@ -5,3 +5,5 @@
 *.out
 *(busy)
 .DS_Store
+
+aide_scilab.synctex.gz

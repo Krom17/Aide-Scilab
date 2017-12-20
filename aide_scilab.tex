@@ -411,7 +411,7 @@ différentes de 0.
 \section{Math}
 \subsection{Calculs élémentaires}
 \begin{description}
-\item{\textbf{sin,cos,tan,asin,acos,atan,atan2,log,log10,exp}}\\
+\item{\textbf{sin,cos,tan,asin,acos,atan,atan2,log,log10,exp,sqrt}}\\
 diverses fonctions mathématiques
 \begin{verbatim}
 -->format(6); v = linspace(0,0.5,6)*%pi
@@ -619,7 +619,7 @@ endfunction
 
 \item{\label{deff}\textbf{deff}(\textit{str\_specif}, \textit{str\_code})} permet de définir une fonction (courte) en ligne sans passer par un fichier .sci. La chaine de caractères \textit{str\_specif} contient la spécification de la fonction, la chaine de caractères \textit{str\_code} en contient le code.
 \begin{verbatim}
--->deff('[x2]=mafonction(x)','x2 = acos(x))');
+-->deff('[x2]=mafonction(x)','x2 = acos(x)');
 -->mafonction(3)
  ans  =
     9.
